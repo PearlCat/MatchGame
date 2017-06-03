@@ -1,0 +1,103 @@
+html {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  min-width: 400px;
+  background-color: rgb(255, 242, 242);
+}
+
+
+/* main container */
+.container-main {
+    margin-top: 5.25rem;
+}
+
+/* winning declaration*/
+#victory {
+  border: 2px solid blue;
+  font-size: 2rem;
+  font-weight: 500;
+  color: hsl(120, 100%, 25%);
+  text-align: center;
+  height: 10rem;
+  width: 30rem;
+  position: fixed;
+  top: calc((100vh - 10rem)/2);
+  left: calc((100vw - 30rem)/2);
+  z-index: 10;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(182, 250, 243);
+  border-radius: 20px;
+  border: 2px solid rgb(4, 46, 72);
+  display: none;
+}
+
+/* display elapsed time */
+#timer-label{
+  position: fixed;
+  height: 2rem;
+  width: 15rem;
+  top: 5px;
+  right: 70px;
+  color: rgb(246, 85, 176);
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+#timer {
+  position: fixed;
+  height: 2rem;
+  width: 5rem;
+  top: 5px;
+  right: 10px;
+  color: rgb(246, 85, 176);
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+/* header */
+#header h2 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(32, 64, 86);
+}
+
+#header dl {
+  color: rgb(74, 74, 74);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+#header dl dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+#reset {
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  background-color: rgb(246, 155, 155);
+  border: 1px solid rgb(74, 74, 74);
+}
+
+/* game */
+.card {
+  background-color: rgb(32, 64, 86);
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  height: 12.5rem;
+  padding: 0;
+  font-size: 7rem;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
