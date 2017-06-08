@@ -3,6 +3,7 @@ $(document).ready(function(){
 var MatchGame = {};
 var displayTime;
 var Start;
+var count;
 
 /*
   Generates and returns an array of matching card values.
@@ -56,18 +57,18 @@ MatchGame.renderCards = function(cardValues, $game) {
 
   $game.data('cardsShown', []); /* keep data of cards clicked before match */
   $game.data('cardsMatch', 0); /* count number of matches made */
-  var cards = $game.data('cardsShown');
-  var count = 0; /* keep track of number of click made*/
+  var count = 0;
 
   $('.card').click(function(){
+    var audio2 = new Audio('./resources/sound/213148__radiy__click.wav');
+    audio2.play()
+      count = count + 1;
     /* start timer when the first click is made */
-    count = count + 1;
     if (count === 1) {
       var Start = new Date();
       displayTime = setInterval(function(){ MatchGame.elapsedTime(Start)}, 200);
       }
     /* run flip card */
-    console.log($game.data('cardsShown').length);
     MatchGame.flipCard($(this), $('#game'));
   }); /* end of .card click */
 
@@ -77,7 +78,7 @@ MatchGame.renderCards = function(cardValues, $game) {
   Flips over a given card and checks to see if two cards are flipped over.
   Updates styles on flipped cards depending whether they are a match or not.
  */
-MatchGame.flipCard = function($card, $game) {
+MatchGame.flipCard = function($card, $game, count) {
 
   if ($card.data("flipped") === true) {
   return }
@@ -125,11 +126,13 @@ MatchGame.flipCard = function($card, $game) {
           }/* end of display win message and stop timing when cardsMatch equals 16 */
         } /*end of if equal*/
         else {
+          var audio1 = new Audio('./resources/sound/331912__kevinvg207__wrong-buzzer.wav');
+          audio1.play()
           window.setTimeout(function(){
           card1.css('background-color', 'rgb(32, 64, 86)').text("").data('flipped', false);
   		    card2.css('background-color', 'rgb(32, 64, 86)').text("").data('flipped', false);
           },
-          400);
+          300);
         } /* end of else not equal*/
 
     /* reset cardShown */
